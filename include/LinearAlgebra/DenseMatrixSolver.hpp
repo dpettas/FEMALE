@@ -36,9 +36,15 @@ int DenseMatrixSolver::factorization (DenseMatrix& A) {
 
 	if ( !A.isSquare() )  return 100;
 
+
 	int m = A.get_nrows();
 	int n = A.get_ncols();
 
+	for (size_t i; i < A.size(); ++i )
+	{
+		std::cout << A[i] << std::endl;
+
+	}
 	dgetrf_( &m,
 				   &n,
 					 &*A.begin()   ,
@@ -56,6 +62,8 @@ int DenseMatrixSolver::solve( DenseMatrix& A, DenseMatrix& B  ){
 	if ( !A.isSquare()         ) return 100; 
 	if ( !A.haveTheSameRows(B) ) return 200;
 
+
+ 
 	int m    = A.get_nrows(); 
 	int n    = A.get_ncols();
 	int nrhs = B.get_ncols();
