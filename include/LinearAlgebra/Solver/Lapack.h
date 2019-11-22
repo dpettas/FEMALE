@@ -15,7 +15,7 @@
 #endif
 
  
-extern "C"  int dgetf2_(int *m, int *n, double *a, int *lda, int *ipiv, int *info);i
+extern "C"  int dgetf2_(int *m, int *n, double *a, int *lda, int *ipiv, int *info);
 
 
 // Lapack factorization routine
