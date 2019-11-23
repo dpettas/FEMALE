@@ -3,11 +3,6 @@
 #define DENSE_MATRIX_H
 
 
-#ifdef USECLOCK
-#include <time.h>
-#else
-#include <sys/time.h>
-#endif
 #include <vector>
 
 
@@ -77,43 +72,6 @@ class DenseMatrix: public std::vector<double>
 		      double& operator()(size_t i, size_t j)       { return operator[](i+j*m); }
 		const double& operator()(size_t i, size_t j) const { return operator[](i+j*m); }
 };
-
-
-/// Simple timing
-#ifdef USECLOCK
-class Timing
-{
-	double st;
-	double gettime() {return clock();}
-public:
-	Timing() {st = gettime();}
-	void reset() {st = gettime();}
-	double time() {return (gettime() - st)/CLK_TCK;}
-};
-#else
-class Timing
-{
-	timeval tim;
-//Sun is different with gettimeofday from others
-#ifndef __sun__
-	struct timezone zone;
-#endif	
-	double st;
-	double gettime()
-	{
-#ifdef __sun__
-		gettimeofday(&tim, (void*)0);
-#else
-		gettimeofday(&tim, &zone);
-#endif	
-		return double(tim.tv_sec) + tim.tv_usec*1e-6;
-	}
-public:
-	Timing() {st = gettime();}
-	void reset() {st = gettime();}
-	double time() {return (gettime() - st);}
-};
-#endif
 
 
 #endif

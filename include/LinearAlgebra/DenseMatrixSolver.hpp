@@ -3,6 +3,7 @@
 #define DENSE_MATRIX_SOLVER_H
 
 #include <vector>
+#include <iterator>
 #include <algorithm>
 #include "LinearAlgebra/DenseMatrix.hpp"
 #include "LinearAlgebra/Solver/Lapack.h"
@@ -36,15 +37,11 @@ int DenseMatrixSolver::factorization (DenseMatrix& A) {
 
 	if ( !A.isSquare() )  return 100;
 
-
 	int m = A.get_nrows();
 	int n = A.get_ncols();
 
-	for (size_t i; i < A.size(); ++i )
-	{
-		std::cout << A[i] << std::endl;
+	ipiv.reserve( n);
 
-	}
 	dgetrf_( &m,
 				   &n,
 					 &*A.begin()   ,
