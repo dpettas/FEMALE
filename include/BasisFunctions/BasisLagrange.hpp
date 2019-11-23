@@ -1,20 +1,24 @@
 #ifdef  BASIS_LAGRANGE_H
 #define BASIS_LAGRANGE_H
 
+#include <vector>
+#include <string>
 #include "BasisFunctions/Phi.hpp"
 
 
-
-
-
-class Phi_0_1D: public Phi
+class BasisLagrange
 {
+	private:
 
-	
+		std::vector<Phi>  phi  ;
+		std::vector<Phi> dphidx;
+	public:
 
 
 
-}
+
+
+}; 
 
 
 #endif
