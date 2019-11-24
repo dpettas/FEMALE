@@ -4,15 +4,19 @@
 #include "LinearAlgebra/DenseMatrix.hpp"
 #include "LinearAlgebra/Solver/Lapack.h"
 #include "LinearAlgebra/DenseMatrixSolver.hpp"
-//#include "BasisFunctions/BasisLagrange.hpp"
+#include "BasisFunctions/Lagrange.hpp"
 #include "BasisFunctions/Phi.hpp"
 
 
 
 int main()
 {
-	Phi phi_0;
-//	BasisLagrange a;
+
+	BasisFunctions bf;
+
+	Lagrange_1D phi(0.0); 
+
+
 
 	return 0;
 }

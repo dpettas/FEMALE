@@ -37,10 +37,18 @@ class Phi{
 		//<><><><><><><><><><><><><><><><><><><><><><><><><><>
 
 		double evaluate             (double val_);
-		double evalueate            ()           ;
+		double evaluate             () {return f(val);}
 		double derivative           (double val_);
+	
+		double derivative ()
+			{ if (df!=NULL) { return df(val);}
+				else          { return this->numerical_derivative(val);} 
+			}
+
 		double numerical_derivative (double val_);
 
+		double numerical_derivative()
+		{ return (f(val+eps) - f(val) )/eps;}
 };
 
 

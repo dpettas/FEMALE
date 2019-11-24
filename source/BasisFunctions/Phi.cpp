@@ -17,7 +17,6 @@ double Phi::get_value () {return val;}
 
 
 double Phi::evaluate (double val_){return  f(val_);}
-//double Phi::evaluate ()           {return  f(val );}
 
 
 double Phi::derivative(double val_)
