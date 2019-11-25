@@ -6,5 +6,4 @@ This is the first attempt to write a C++ for finite element method.
 
 g++ -I./include main.cpp ./source/LinearAlgebra/DenseMatrixSolver.cpp  ./source/BasisFunctions/Phi.cpp  -llapack
 
-compile: g++ -I./include main.cpp ./source/LinearAlgebra/DenseMatrixSolver.cpp  -llapack
-create unit tests for each class
+create a method named calculate in the Phi class that to calculate the function and the derivative of the value
