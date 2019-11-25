@@ -14,9 +14,9 @@ int main()
 
 	BasisFunctions bf;
 
-	Lagrange_1D phi(0.0); 
+	Lagrange_1D phi(-1.0); 
 
-
+	std::cout << phi.get_value() << std::endl;
 
 	return 0;
 }

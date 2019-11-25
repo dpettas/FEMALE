@@ -9,11 +9,11 @@
 class Phi{
 
 	private:
-		double (*f )(double) = NULL  ;
-		double (*df)(double) = NULL  ;
-		double eps           = 1.e-8 ;
-		double val           = std::nan("");
-
+		double  (*f )(double) = NULL  ;
+		double  (*df)(double) = NULL  ;
+		double  eps           = 1.e-8 ;
+		double  val           = std::nan("");
+		double dval           = std::nan("");
 	public:
 		Phi(){};
 		Phi( double (*f_) (double)                         );
@@ -24,18 +24,24 @@ class Phi{
 		// Setters 
 		//<><><><><><><><><><><><><><><><><><><><><><><><><><>
 		void   set_epsilon ( double eps_ ); 
-		double set_value   ( double val_ );
+		void   set_value   ( double val_ ) {val = val_; }
 
 		//<><><><><><><><><><><><><><><><><><><><><><><><><><>
 		// Getters
 		//<><><><><><><><><><><><><><><><><><><><><><><><><><>
 
 		double get_value  ();
-		
+		//<><><><><><><><><><><><><><><><><><><><><><><><><><>
+		// Getters
+		//<><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+		bool is_value_defined()     { return !std::isnan(val);}
+		bool is_not_value_defined()	{ return  std::isnan(val);}
 		//<><><><><><><><><><><><><><><><><><><><><><><><><><>
 		// Methods
 		//<><><><><><><><><><><><><><><><><><><><><><><><><><>
-
+		void calculate(); 
+		
 		double evaluate             (double val_);
 		double evaluate             () {return f(val);}
 		double derivative           (double val_);

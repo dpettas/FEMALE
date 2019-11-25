@@ -22,23 +22,24 @@ class BasisFunctions{
 	private:
 
 	protected:
-		size_t              num   = -1; 
-		double              value = std::nan("");
+		size_t              num    = 0; 
+		double              value  = std::nan("");
+		double              f_value;
+		double             df_value;
 
 		std::vector<Phi>    phi;
-		std::vector<double> eval_phi;
-		std::vector<double> eval_der;	
+
 	public:
 	//<><><><><><><><><><><><><><><><><><><><><><><><>
 	// Setters
 	//<><><><><><><><><><><><><><><><><><><><><><><><>	
-	void set_numOfBasisFunctions( size_t n      ) { num   = n     ;}
-	void set_value              ( double value_ ) { value = value_;}
+	void set_number_of_basis_functions( size_t n      ) { num   = n     ;}
+	void set_value                     ( double value_ ) { value = value_;}
 
 	//<><><><><><><><><><><><><><><><><><><><><><><><>
 	// Getters
 	//<><><><><><><><><><><><><><><><><><><><><><><><>	
-	size_t get_number_of_basis() {return num  ;}
+	size_t get_number_of_basis_functions() {return num  ;}
 	double get_value          () {return value;}
 
 
@@ -49,18 +50,28 @@ class BasisFunctions{
 	bool is_value_defined          () { return !std::isnan(value);} 
 	bool is_basis_empty            () { return  phi.empty()      ;}
 	
-	bool is_eval_phi_defined       () { return !eval_phi.empty() ;}
-	bool is_eval_der_defined       () { return !eval_der.empty() ;}
-
 	//<><><><><><><><><><><><><><><><><><><><><><><><>
 	// Methods
 	//<><><><><><><><><><><><><><><><><><><><><><><><>	
 
-	void evaluate (double val);
-	void evaluate ();
-
-
+	void calculate();
 
 };
+
+void BasisFunctions::calculate()
+{
+	if ( this->is_value_defined() )
+	{
+		for (std::vector<Phi>::iterator it = phi.begin(); it != phi.end(); ++it )
+		{
+		
+			it->set_value(value);
+			std::cout << value << std::endl;
+		}
+				
+	}
+
+}
+
 
 #endif
