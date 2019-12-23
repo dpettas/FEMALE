@@ -1,3 +1,5 @@
+
+![alt text](https://github.com/dpettas/FEMALE/blob/master/Logo.png)
 # FEMALE
 
 This is the first attempt to write a C++ for finite element method.
