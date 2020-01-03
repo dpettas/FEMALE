@@ -1,27 +1,48 @@
+CXX  = g++
+EXEC = FEMALE
+FLAGS= -O3
 
 
-CXX = g++
-
-
-
-
-# use shell and find instead wildcard
+#<><><><><><><><><><><><><><><><><><><><><><><><>
+# use shell to find files instead wildcard
+#<><><><><><><><><><><><><><><><><><><><><><><><>
 SRC := $(shell find ./source/ -type f -name '*.cpp')
 OBJ := $(SRC:%.cpp=%.o)
-INC = "./include"
+INC := ./include
 
 MAIN_SOURCE := $(wildcard *.cpp)
 MAIN_SOURCE := $(MAIN_SOURCE:%.cpp=%)
-all: ${OBJ}
 
-%.o: %.cpp
-	${CXX} -I${INC} -c $< -o $@
 
+LIBS := -llapack -lblas
+
+
+
+.PHONY := all %.o ${MAIN_SOURCE}
+
+all:   ${MAIN_SOURCE}
+build: ${MAIN_SOURCE}
+#<><><><><><><><><><><><><><><><><><><><><><><><>
+# Link the code
+#<><><><><><><><><><><><><><><><><><><><><><><><>
 ${MAIN_SOURCE}:${OBJ}
+	@echo ""
+	@echo "FLAGS : ${FLAGS}"
 	@echo "Checking ..."
-	@echo $<
+	@${CXX} ${FLAGS} -I${INC} -o ${EXEC} ${MAIN_SOURCE}.cpp ${OBJ} ${LIBS} 
+#<><><><><><><><><><><><><><><><><><><><><><><><>
+# Create Object files
+#<><><><><><><><><><><><><><><><><><><><><><><><>
+%.o: %.cpp
+	@echo "Building .. $<"
+	@${CXX} ${FLAGS} -I${INC} -c $< -o $@
+
 
 clean:
-	rm -rf ${OBJ}
+	@echo "Removing files"
+	@rm -rf ${OBJ}
 
-
+cleanall:
+	@rm -rf ${OBJ}
+	@rm -rf ${EXEC}	
+	
