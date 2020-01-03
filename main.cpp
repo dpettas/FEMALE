@@ -1,24 +1,29 @@
 #include <iostream>
-
+#include <cmath>
+#include <ostream>
 #include <vector>
-#include "./LinearAlgebra/DenseMatrix.hpp"
-#include "./LinearAlgebra/Solver/Lapack.h"
-#include "./LinearAlgebra/DenseMatrixSolver.hpp"
-#include "./BasisFunctions/Lagrange.hpp"
-#include "./BasisFunctions/Phi.hpp"
+#include "./include/LinearAlgebra.h"
 
+#include "./include/BasisFunctions/Lagrange.hpp"
+#include "./include/BasisFunctions/Phi.hpp"
+#include "./include/ModelParameter.hpp"
 
 
 int main()
 {
+  ModelParameter Re (19.0, 0.0, 20.0, -0.1);
 
-	BasisFunctions bf;
+  while (Re.is_in_the_bounds())
+  {
+    std::cout<< Re << std::endl; 
 
-	Lagrange_1D phi(-1.0); 
+    Re ++;  
+  
+  };Re.fix_values_between_the_limits();
 
-	std::cout << phi.get_value() << std::endl;
+  std::cout << Re << std::endl;
 
-	return 0;
+
 }
 
 
