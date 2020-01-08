@@ -58,20 +58,4 @@ class BasisFunctions{
 
 };
 
-void BasisFunctions::calculate()
-{
-	if ( this->is_value_defined() )
-	{
-		for (std::vector<Phi>::iterator it = phi.begin(); it != phi.end(); ++it )
-		{
-		
-			it->set_value(value);
-			std::cout << value << std::endl;
-		}
-				
-	}
-
-}
-
-
 #endif
