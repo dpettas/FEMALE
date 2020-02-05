@@ -1,30 +1,48 @@
-#include <iostream>
-#include <cmath>
-#include <ostream>
 #include <vector>
-#include "./include/LinearAlgebra.h"
+#include <iostream>
 
-#include "./include/BasisFunctions/Lagrange.hpp"
-#include "./include/BasisFunctions/Phi.hpp"
-#include "./include/ModelParameter.hpp"
+std::vector<double> linspace(double xmin, double xmax, int n);
+
+class Element
+{
+  private:
+    size_t n;
+    std::vector<size_t> index;
+  public:
+
+  Element(std::vector<size_t> _index );
+};
+
+
+
 
 
 int main()
 {
-  ModelParameter Re (19.0, 0.0, 20.0, -0.1);
 
-  while (Re.is_in_the_bounds())
-  {
-    std::cout<< Re << std::endl; 
-
-    Re ++;  
-  
-  };Re.fix_values_between_the_limits();
-
-  std::cout << Re << std::endl;
+ std::vector<double> a = linspace(2.0, 3.0, 11);  
 
 
+ for (std::vector<double>::iterator i = a.begin(); i !=a.end(); ++i)
+ {std::cout << *i << '\n';} 
+
+
+
+  return 0;
 }
+
+
+
+std::vector<double> linspace( double xmin, double xmax, int n)
+{
+  std::vector<double> out( n , 0.0); 
+  double              step = (xmax - xmin)/(n-1);
+
+  for(size_t i; i < n; ++i){out[i] = xmin + step * i;}
+
+  return out;
+}
+
 
 
 
