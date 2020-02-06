@@ -6,7 +6,7 @@ FLAGS= -O3
 #<><><><><><><><><><><><><><><><><><><><><><><><>
 # use shell to find files instead wildcard
 #<><><><><><><><><><><><><><><><><><><><><><><><>
-SRC := $(shell find ./source/ -type f -name '*.cpp')
+SRC := $(shell find ./source -type f -name '*.cpp')
 OBJ := $(SRC:%.cpp=%.o)
 INC := ./include
 
