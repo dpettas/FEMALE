@@ -29,3 +29,8 @@ void Matrix::resize (size_t _n, size_t _m, double& val)
   { std::vector<double>::resize (_n*_m, val); n = _n; m = _m; }
 
 
+void Matrix::clear()
+  { n = m = 0 ; std::vector<double>::clear(); } 
+
+
+

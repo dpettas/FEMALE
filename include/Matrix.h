@@ -26,15 +26,31 @@ class Matrix: public std::vector<double>
     void           reserve( size_t _n, size_t _m);
     void           resize ( size_t _n, size_t _m); 
     void           resize ( size_t _n, size_t _m, double& val); 
+    void           clear  ();
 
           double& operator()(size_t i, size_t j)       { return operator[](i + j * n); }
     const double& operator()(size_t i, size_t j) const { return operator[](i + j * n); }
+
+    Matrix& operator = ( const double& val);
+
 
 };
 
 //<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 // METHODS
 //<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Matrix& Matrix::operator = (const double& val)
+{
+
+  for ( std::vector<double>::iterator it = this->begin(); 
+        it != this->end(); 
+        ++ it)
+  { *it = val; }
+
+  return *this;
+}
+
 
 
 #endif
