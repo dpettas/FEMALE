@@ -20,14 +20,6 @@ class Array: public std::vector<double>
 
 };
 
-Array& Array::operator = (const double& val){ 
-  
-  int _sz = this->size(); 
-  this->clear();
-  this->resize(_sz, val); 
-  return *this;
-}
-
 
 #endif 
 

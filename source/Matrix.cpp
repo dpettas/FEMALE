@@ -33,4 +33,14 @@ void Matrix::clear()
   { n = m = 0 ; std::vector<double>::clear(); } 
 
 
+Matrix& Matrix::operator = (const double& val)
+{
+  for ( std::vector<double>::iterator it = this->begin(); 
+        it != this->end(); 
+        ++ it)
+  { *it = val; }
+
+  return *this;
+}
+
 

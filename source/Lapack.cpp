@@ -1,4 +1,4 @@
-#include "LinearSolve.h"
+#include "Lapack.h"
 
 int Lapack::factorize(Matrix& A)
 {

@@ -40,17 +40,6 @@ class Matrix: public std::vector<double>
 // METHODS
 //<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
-Matrix& Matrix::operator = (const double& val)
-{
-
-  for ( std::vector<double>::iterator it = this->begin(); 
-        it != this->end(); 
-        ++ it)
-  { *it = val; }
-
-  return *this;
-}
-
 
 
 #endif
