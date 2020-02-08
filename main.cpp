@@ -10,7 +10,7 @@
 #include <iostream>
 #include <vector> 
 #include <math.h>
-
+#include <string>
 
 #define __NXEL__         10 
 #define __NBF_1D__        3
@@ -18,8 +18,14 @@
 #define __UPPER_BOUND__ 1.0
 
 
+#define PRINT(name) printer(#name, (name))
 
-
+void printer(std::string name, int& value) {
+  std::cout << name  << "\t" 
+            << value << std::endl;
+  
+//  printf("name: %s\tvalue: %d\n", name, value);
+}
 
 int main()
 {
@@ -31,6 +37,11 @@ int main()
 
   Fem_1d Base ( MainMesh );
 
+  PRINT( Base.get_NumberOfBasis() );
 
   return 0;
 }
+
+
+
+
