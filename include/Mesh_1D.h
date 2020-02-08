@@ -22,7 +22,8 @@ class Mesh1D
 
   public:
 
-
+    Mesh1D(){};
+    Mesh1D( Mesh1D& other);
     Mesh1D(int NumberOfElements, int NumberOfBasis, double _lower_limit, double _upper_limit);
  
 
@@ -43,7 +44,6 @@ class Mesh1D
     void calculate_element(); 
      
 };
-
 
 
 

@@ -20,6 +20,23 @@ Mesh1D::Mesh1D(int NumberOfElements, int NumberOfBasis, double _lower_limit, dou
 }
 
 
+
+Mesh1D::Mesh1D ( Mesh1D& other)
+{
+  nxel   = other.get_NumberOfElements(); 
+  nbf_1d = other.get_NumberOfBasis(); 
+  nodtol = other.get_NumberOfNodes(); 
+  nnx    = nodtol;
+
+  low    = other.get_Low_Mesh_Limit(); 
+  up     = other.get_Upper_Mesh_Limit();  
+
+  x      = other.get_Nodes(); 
+  element= other.get_Elements();
+}
+
+
+
 void Mesh1D::calculate_nodes()
 {
   double step = (up - low)/(nodtol-1);  

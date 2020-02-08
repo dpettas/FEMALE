@@ -18,6 +18,8 @@ class Fem_1d
     int nunknowns; 
 
 
+    Mesh1D mesh; 
+
     Array  res; 
     Array  sol; 
     Matrix jac;
@@ -25,18 +27,21 @@ class Fem_1d
   public: 
 
     Fem_1d( Mesh1D& mesh);
-
-    int& get_NumberOfElements() { return nxel  ;}
-    int& get_NumberOfBasis   () { return nbf_1d;}
-    int& get_NumberOfNodes   () { return nodtol;}
+    Fem_1d( Mesh1D& mesh, int NumberOfEquations);
 
 
+
+
+    int&    get_NumberOfElements () { return nxel  ;}
+    int&    get_NumberOfBasis    () { return nbf_1d;}
+    int&    get_NumberOfNodes    () { return nodtol;}
+    int&    get_NumberOfEquations() { return    neq;}
+    Mesh1D& get_Mesh             () { return   mesh;}
 
   protected:
-    void set_DiscretizationData(); 
-    void set_global_arrays();
-  
-    void clear_global_arrays(); 
+
+    void allocate_memory_global_arrays();
+    void clear_memory_global_arrays(); 
 
 };
 
