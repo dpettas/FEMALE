@@ -5,6 +5,7 @@
 #include "Array.h" 
 #include "Matrix.h"
 #include "Mesh_1D.h"
+#include "GaussPoints1D.h"
 
 class Fem_1d
 {
@@ -16,6 +17,8 @@ class Fem_1d
     int nnx; 
     int nodtol; 
     int nunknowns; 
+    
+    // integration 
 
 
     Mesh1D mesh; 

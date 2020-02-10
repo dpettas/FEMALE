@@ -1,5 +1,6 @@
 #include "Fem_1D.h"
 
+
 Fem_1d::Fem_1d( Mesh1D& _mesh)
 {
   nxel      = _mesh.get_NumberOfElements(); 

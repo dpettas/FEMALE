@@ -7,7 +7,10 @@
 #include "Mesh_1D.h"
 #include "Element_1D.h"
 
+//#include "GaussPoints1D.h"
+
 #include <iostream>
+#include <utility>
 #include <vector> 
 #include <math.h>
 #include <string>
@@ -22,6 +25,7 @@
 
 
 
+
 int main()
 {
 
@@ -30,18 +34,16 @@ int main()
                    __LOW_BOUND__ ,
                    __UPPER_BOUND__);
 
-
-
-
+//
   Fem_1d Base ( MainMesh );
+//
+//  debug_print( Base.get_NumberOfBasis()     );
+//  debug_print( Base.get_NumberOfElements()  ); 
+//  debug_print( Base.get_NumberOfNodes()     ); 
+//  debug_print( Base.get_NumberOfEquations() );
 
-  debug_print( Base.get_NumberOfBasis()     );
-  debug_print( Base.get_NumberOfElements()  ); 
-  debug_print( Base.get_NumberOfNodes()     ); 
-  debug_print( Base.get_NumberOfEquations() );
 
  
-
 
   return 0;
 }
